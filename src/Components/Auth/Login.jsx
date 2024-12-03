@@ -1,13 +1,13 @@
 import {useState} from 'react'
 
-function Login() {
+function Login({handlelogin}) {
+   
      const [Email, setEmail] = useState('shubham mourya')
      const [password, setpassword] = useState('')
+
     const submithandler=(e)=>{
         e.preventDefault()
-        console.log("form submit ho gya h ");
-        console.log("email=",Email);
-        console.log("password=",password);
+        handlelogin(Email,password)
         setEmail('')
         setpassword('')
         
@@ -33,7 +33,7 @@ function Login() {
                 className='border-2 placeholder:text-gray-400 py-3 px-5 border-emerald-600 m-4 text-xl rounded-full text-white  outline-none bg-transparent' 
                  type="Password"
                  placeholder='Enter your password' />
-                <button className='border-none placeholder:text-gray-400 py-3 px-5 bg-emerald-600 text-xl rounded-full text-white  outline-none bg-transparent'>Login</button>
+                <button className='border-none placeholder:text-gray-400 py-3 px-5 bg-green-600 text-xl rounded-full text-white  outline-none '>Login</button>
             </form>
 
         </div>
