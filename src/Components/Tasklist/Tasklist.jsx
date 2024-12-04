@@ -1,48 +1,34 @@
 import React from 'react'
+import Accepttask from './Accepttask'
+import Newtasklist from './Newtasklist'
+import Completetask from './Completetask'
+import Failedtask from './Failedtask'
 
-function Tasklist() {
+function Tasklist({data}) {
   return (
     <div id='tasklist' className='h-[55%] flex items-center overflow-x-auto justify-start gap-5 flex-nowrap w-full py-5  mt-10'>
-        <div className='h-full flex-shrink-0 w-[300px] bg-yellow-400 p-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-4 rounded-md text-sm'>High</h3>
-                <h3>20 feb 2024</h3>
-            </div>
-            <h2 className='mt-4 text-2xl font-semibold'>Make a youtube video1</h2>
-            <p className='text-sm mt-2'>  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cum itaque, ab fuga accusamus sed.</p>
-        </div>
-        <div className='h-full flex-shrink-0 w-[300px] bg-green-400 p-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-4 rounded-md text-sm'>High</h3>
-                <h3>20 feb 2024</h3>
-            </div>
-            <h2 className='mt-4 text-2xl font-semibold'>Make a youtube video1</h2>
-            <p className='text-sm mt-2'>  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cum itaque, ab fuga accusamus sed.</p>
-        </div>
-        <div className='h-full flex-shrink-0 w-[300px] bg-blue-400 p-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-4 rounded-md text-sm'>High</h3>
-                <h3>20 feb 2024</h3>
-            </div>
-            <h2 className='mt-4 text-2xl font-semibold'>Make a youtube video1</h2>
-            <p className='text-sm mt-2'>  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cum itaque, ab fuga accusamus sed.</p>
-        </div>
-        <div className='h-full flex-shrink-0 w-[300px] bg-red-400 p-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-4 rounded-md text-sm'>High</h3>
-                <h3>20 feb 2024</h3>
-            </div>
-            <h2 className='mt-4 text-2xl font-semibold'>Make a youtube video1</h2>
-            <p className='text-sm mt-2'>  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cum itaque, ab fuga accusamus sed.</p>
-        </div>
-        <div className='h-full flex-shrink-0 w-[300px] bg-pink-400 p-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-4 rounded-md text-sm'>High</h3>
-                <h3>20 feb 2024</h3>
-            </div>
-            <h2 className='mt-4 text-2xl font-semibold'>Make a youtube video1</h2>
-            <p className='text-sm mt-2'>  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cum itaque, ab fuga accusamus sed.</p>
-        </div>
+       {
+        data.tasks.map((elem,index)=>{
+            if (elem.active) {
+                return <Accepttask  key={index} data={elem}/>
+            }
+            if (elem.newTask) {
+                return <Newtasklist  key={index} data={elem}/>
+            }
+            if (elem.completed) {
+                return <Completetask  key={index} data={elem}/>
+            }
+            if(elem.failed){
+                return <Failedtask  key={index} data={elem}/>
+            }
+        })
+       }
+
+        
+       
+       
+
+        
       
         
 

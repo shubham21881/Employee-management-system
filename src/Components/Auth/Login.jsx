@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 function Login({handlelogin}) {
    
-     const [Email, setEmail] = useState('shubham mourya')
+     const [Email, setEmail] = useState('')
      const [password, setpassword] = useState('')
 
     const submithandler=(e)=>{
