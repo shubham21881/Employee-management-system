@@ -4,7 +4,7 @@ import Tasklistnumber from '../Others/Tasklistnumber'
 import Tasklist from '../Tasklist/Tasklist'
 
 function EmployeeDashboard(props) {
-  console.log(data);
+ 
   
     
   return (
