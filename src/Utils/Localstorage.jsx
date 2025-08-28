@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const employees = [
     {
         "id": 1,
@@ -209,23 +207,14 @@ const admin = [{
     "password": "123"
 }];
 
-export const setLocalStorage = (employees, admin) => {
-  localStorage.setItem("employees", JSON.stringify(employees));
-  localStorage.setItem("admin", JSON.stringify(admin));
-};
+export const setlocalstorage =()=>{
+    localStorage.setItem('employees',JSON.stringify(employees))
+    localStorage.setItem('admin',JSON.stringify(admin))
+}
 
-export const getLocalStorage = () => {
-  const employees = JSON.parse(localStorage.getItem("employees"));
-  const admin = JSON.parse(localStorage.getItem("admin"));
+export const getLocalStorage = ()=>{
+    const employees = JSON.parse(localStorage.getItem('employees'))
+    const admin = JSON.parse(localStorage.getItem('admin'))
 
-  return { employees, admin };
-};
-
-// Inside your component
-useEffect(() => {
-  // Example: set defaults on first load
-  const { employees, admin } = getLocalStorage();
-  if (!employees || !admin) {
-    setLocalStorage([], { email: "admin@test.com", password: "12345" });
-  }
-}, []);
+    return {employees,admin}
+}
